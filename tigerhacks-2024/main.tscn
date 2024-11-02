@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1hb00vsxq1fg"]
 
 [node name="Label" type="Label"]
-offset_right = 40.0
+offset_right = 48.0
 offset_bottom = 23.0
 text = "hello"
