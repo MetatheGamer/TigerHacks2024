@@ -1,6 +1,13 @@
-[gd_scene format=3 uid="uid://c1hb00vsxq1fg"]
+[gd_scene load_steps=2 format=3 uid="uid://c1hb00vsxq1fg"]
+
+[ext_resource type="Texture2D" uid="uid://bfuby048uml31" path="res://icon.svg" id="1_kjnxx"]
 
 [node name="Label" type="Label"]
 offset_right = 40.0
 offset_bottom = 23.0
 text = "hello"
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(493, 253)
+scale = Vector2(1.23438, 1.01563)
+texture = ExtResource("1_kjnxx")
