@@ -1196,10 +1196,11 @@ scale = Vector2(23.616, 20.6944)
 texture = ExtResource("16_ahtrd")
 
 [node name="Player_Character" parent="." instance=ExtResource("17_g1ygq")]
+position = Vector2(-378, -279)
 
 [node name="InteractionArea(House)" parent="." instance=ExtResource("15_ivwf1")]
-position = Vector2(2209, -578)
-scale = Vector2(-13.654, 13.3473)
+position = Vector2(2217, -576)
+scale = Vector2(-13.7539, 13.2447)
 interact_label = "Sleep?"
 interact_type = "print_text"
 interact_value = "should make player sleep"
@@ -1213,8 +1214,8 @@ texture = ExtResource("16_ahtrd")
 script = SubResource("GDScript_vqom2")
 
 [node name="InteractionArea(Crop_Carrot)" parent="Carrots3" instance=ExtResource("15_ivwf1")]
-position = Vector2(-222, 92)
-scale = Vector2(7.04, 7.04)
+position = Vector2(-191, 90)
+scale = Vector2(8.46388, 10.9931)
 interact_label = "Plant Carrots"
 interact_type = "plant_crops"
 interact_value = "Carrots"

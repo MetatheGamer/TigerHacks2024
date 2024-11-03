@@ -5,8 +5,11 @@ extends CharacterBody2D
 @onready var InteractionLabel = $"InteractionComponents/Interact Label"
 
 var GameManager2 = load("res://scripts/GameManager.gd")
-var utility_instance2 = GameManager
+#var utility_instance2 = GameManager
 
+const FRICTION = 500
+const LIMIT = 400
+const ACCEL = 800
 enum {IDLE, RUN}
 var state = IDLE
 @onready var animationTree = $AnimationTree
@@ -26,7 +29,7 @@ func _ready():
 	update_interactions()
 	
 #Feel free to change the speed
-var SPEED = 500
+var SPEED = 200
 var motion = Vector2.ZERO
 
 #Movement of character
@@ -72,7 +75,7 @@ func _physics_process(delta):
 	velocity = motion
 			
 	move_and_slide()
-
+	
 func animate() -> void:
 	state_machine.travel(anim_tree_keys[state])
 	animationTree.set(blendPath[state], blendPosition)

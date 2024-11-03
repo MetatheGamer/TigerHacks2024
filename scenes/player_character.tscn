@@ -286,11 +286,13 @@ vframes = 4
 frame = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, -23)
 scale = Vector2(1.53632, 1.58301)
 shape = SubResource("RectangleShape2D_8vi4t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+visible = false
 position = Vector2(-0.999969, -65)
 scale = Vector2(1.465, 1.465)
 position_smoothing_enabled = true
@@ -310,6 +312,7 @@ parameters/move/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/move/TimeScale/scale = 2.0
 
 [node name="InteractionComponents" type="Node2D" parent="."]
+visible = false
 z_index = 1
 
 [node name="interaction area" type="Area2D" parent="InteractionComponents"]
