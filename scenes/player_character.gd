@@ -21,7 +21,6 @@ var anim_tree_keys = [
 	'move'
 ]
 
-
 func _ready():
 	#utility_instance2.Carrots.visible = false
 	update_interactions()
@@ -37,30 +36,38 @@ func _physics_process(delta):
 	if Input.is_action_pressed("Right") && Input.is_action_pressed("Up"):
 		motion.y = -SPEED
 		motion.x = SPEED
+		animate()
 	elif Input.is_action_pressed("Right") && Input.is_action_pressed("Down"):
 		motion.y = SPEED
 		motion.x = SPEED
+		animate()
 	elif Input.is_action_pressed("Left") && Input.is_action_pressed("Up"):
 		motion.y = -SPEED
 		motion.x = -SPEED
+		animate()
 	elif Input.is_action_pressed("Left") && Input.is_action_pressed("Down"):
 		motion.y = SPEED
 		motion.x = -SPEED
+		animate()
 	elif Input.is_action_pressed("Up"):
 		motion.y = -SPEED
 		motion.x = 0
+		animate()
 	elif Input.is_action_pressed("Down"):
 		motion.y = SPEED
 		motion.x = 0
+		animate()
 	elif Input.is_action_pressed("Left"):
 		motion.x = -SPEED
 		motion.y = 0
 	elif Input.is_action_pressed("Right"):
 		motion.x = SPEED
 		motion.y = 0
+		animate()
 	else:
 		motion.x = 0
 		motion.y = 0
+		animate()
 		
 	velocity = motion
 			

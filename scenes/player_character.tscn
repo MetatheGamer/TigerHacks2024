@@ -1,8 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://dbmfpfkucerfk"]
+[gd_scene load_steps=34 format=3 uid="uid://dbmfpfkucerfk"]
 
 [ext_resource type="Script" path="res://scenes/player_character.gd" id="1_0338i"]
 [ext_resource type="Texture2D" uid="uid://dgdrhtk8ftcyd" path="res://assets/Character/TigerHacks 2024 spritesheet_20241103032632.png" id="2_u4d0a"]
-[ext_resource type="Script" path="res://scenes/interacter.gd" id="3_h7x5s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8vi4t"]
 size = Vector2(29.5293, 26.5)
@@ -24,6 +23,18 @@ func _process(delta: float) -> void:
 
 [sub_resource type="Animation" id="Animation_vxyxy"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [16]
+}
 
 [sub_resource type="Animation" id="Animation_onqqu"]
 resource_name = "walk-back"
@@ -40,7 +51,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [12, 13, 14, 15]
+"values": [16, 17, 18, 19]
 }
 
 [sub_resource type="Animation" id="Animation_dp64f"]
@@ -58,7 +69,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3]
+"values": [1, 2, 3, 4]
 }
 
 [sub_resource type="Animation" id="Animation_pxj08"]
@@ -76,7 +87,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [4, 5, 6, 7]
+"values": [6, 7, 8, 9]
 }
 
 [sub_resource type="Animation" id="Animation_0xmd1"]
@@ -94,23 +105,123 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1, 1.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [8, 9, 10, 11]
+"values": [11, 12, 13, 14]
+}
+
+[sub_resource type="Animation" id="Animation_1474h"]
+resource_name = "idle_forward"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_jpvlc"]
+resource_name = "idle_back"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [15, 17]
+}
+
+[sub_resource type="Animation" id="Animation_3qi5n"]
+resource_name = "idle_left"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 7]
+}
+
+[sub_resource type="Animation" id="Animation_amtiy"]
+resource_name = "idle_right"
+loop_mode = 1
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 12]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ubjx"]
 _data = {
 "RESET": SubResource("Animation_vxyxy"),
+"idle_back": SubResource("Animation_jpvlc"),
+"idle_forward": SubResource("Animation_1474h"),
+"idle_left": SubResource("Animation_3qi5n"),
+"idle_right": SubResource("Animation_amtiy"),
 "walk-back": SubResource("Animation_onqqu"),
 "walk-forward": SubResource("Animation_dp64f"),
 "walk-left": SubResource("Animation_pxj08"),
 "walk-right": SubResource("Animation_0xmd1")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_igx7o"]
+animation = &"idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_crsjp"]
+animation = &"idle_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b7diq"]
+animation = &"idle_back"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cjula"]
+animation = &"idle_forward"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_buvxg"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_igx7o")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_crsjp")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_b7diq")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_cjula")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_ne2e3"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_41hvw"]
+graph_offset = Vector2(-33.2377, 15.8422)
 nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_buvxg")
-nodes/BlendSpace2D/position = Vector2(329.767, 75.0504)
+nodes/BlendSpace2D/position = Vector2(100, 70)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_ne2e3")
+nodes/TimeScale/position = Vector2(332.34, 227.246)
+nodes/output/position = Vector2(540, 140)
+node_connections = [&"TimeScale", 0, &"BlendSpace2D", &"output", 0, &"TimeScale"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ey11m"]
 animation = &"walk-left"
@@ -133,12 +244,18 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_tnp0r")
 blend_point_2/pos = Vector2(0, 1)
 blend_point_3/node = SubResource("AnimationNodeAnimation_jnjqw")
 blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_41du8"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_2sy8y"]
 graph_offset = Vector2(-12.6364, -9.63634)
 nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_i0mwb")
 nodes/BlendSpace2D/position = Vector2(139, 106)
-nodes/output/position = Vector2(370, 110)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_41du8")
+nodes/TimeScale/position = Vector2(365.431, 263.09)
+nodes/output/position = Vector2(540, 210)
+node_connections = [&"TimeScale", 0, &"BlendSpace2D", &"output", 0, &"TimeScale"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cb2ds"]
 advance_mode = 2
@@ -156,9 +273,6 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_37cqf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_f7onv"]
-radius = 14.2778
-
 [node name="Player_Character" type="CharacterBody2D"]
 position = Vector2(-368, -250)
 script = ExtResource("1_0338i")
@@ -169,6 +283,7 @@ scale = Vector2(1.64804, 1.50473)
 texture = ExtResource("2_u4d0a")
 hframes = 5
 vframes = 4
+frame = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -23)
@@ -190,7 +305,9 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_cqjl6")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/BlendSpace2D/blend_position = Vector2(0, 0)
+parameters/idle/TimeScale/scale = 1.0
 parameters/move/BlendSpace2D/blend_position = Vector2(0, 0)
+parameters/move/TimeScale/scale = 2.0
 
 [node name="InteractionComponents" type="Node2D" parent="."]
 z_index = 1
@@ -215,14 +332,6 @@ text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
-
-[node name="interacter" type="Area2D" parent="."]
-script = ExtResource("3_h7x5s")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interacter"]
-position = Vector2(-1, -71)
-scale = Vector2(5.0029, -5.89777)
-shape = SubResource("CircleShape2D_f7onv")
 
 [connection signal="area_entered" from="InteractionComponents/interaction area" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionComponents/interaction area" to="." method="_on_interaction_area_area_exited"]
