@@ -7,19 +7,19 @@ extends CharacterBody2D
 var GameManager2 = load("res://scripts/GameManager.gd")
 var utility_instance2 = GameManager
 
-#enum {IDLE, RUN}
-#var state = IDLE
-#@onready var animationTree = $AnimationTree
-#@onready var state_machine = animationTree["parameters/playback"]
-#var blendPosition : Vector2 = Vector2.ZERO
-#var blendPath = [
-	#"parameters/idle/BlendSpace2D/blend_position",
-	#"parameters/move/BlendSpace2D/blend_position"
-#]
-#var anim_tree_keys = [
-	#"idle",
-	#'move'
-#]
+enum {IDLE, RUN}
+var state = IDLE
+@onready var animationTree = $AnimationTree
+@onready var state_machine = animationTree["parameters/playback"]
+var blendPosition : Vector2 = Vector2.ZERO
+var blendPath = [
+	"parameters/idle/BlendSpace2D/blend_position",
+	"parameters/move/BlendSpace2D/blend_position"
+]
+var anim_tree_keys = [
+	"idle",
+	'move'
+]
 
 
 func _ready():
@@ -66,9 +66,9 @@ func _physics_process(delta):
 			
 	move_and_slide()
 
-#func animate() -> void:
-	#state_machine.travel(anim_tree_keys[state])
-	#animationTree.set(blendPath[state], blendPosition)
+func animate() -> void:
+	state_machine.travel(anim_tree_keys[state])
+	animationTree.set(blendPath[state], blendPosition)
 ################################################################################
 #Interactions
 
